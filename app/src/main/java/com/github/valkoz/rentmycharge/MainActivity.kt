@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
 
         car_charge.setOnClickListener {
+            if (car_charge.text == "charge")
+                car_charge.text = "stop charge"
+            else
+                car_charge.text = "charge"
             val task = LoadTask()
             task.execute()
         }
@@ -102,6 +106,5 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             return null
         }
     }
-
 
 }
