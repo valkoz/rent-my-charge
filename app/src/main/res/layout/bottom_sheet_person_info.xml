@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/man_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/stub_man"
+        tools:src="@drawable/stub_man" />
+
+    <ImageView
+        android:id="@+id/drink"
+        android:layout_toEndOf="@id/man_name"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_drink"
+        tools:src="@drawable/ic_drink" />
+
+    <ImageView
+        android:id="@+id/food"
+        android:layout_toEndOf="@id/drink"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_food"
+        tools:src="@drawable/ic_food" />
+
+    <ImageView
+        android:id="@+id/wash"
+        android:layout_toEndOf="@id/food"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_wash"
+        tools:src="@drawable/ic_wash" />
+
+    <ImageView
+        android:id="@+id/toilet"
+        android:layout_toEndOf="@id/wash"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_toilet"
+        tools:src="@drawable/ic_toilet" />
+
+
+    <TextView
+        android:id="@+id/man_name"
+        android:layout_below="@id/man_image"
+        android:layout_marginStart="10dp"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jonathan Smith"/>
+
+    <TextView
+        android:id="@+id/open_hours"
+        android:layout_below="@id/drink"
+        android:layout_toEndOf="@id/man_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Hours: 24/7"/>
+
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:id="@+id/access_type"
+        android:layout_below="@id/open_hours"
+        android:layout_toEndOf="@id/man_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Access Type: Public"/>
+
+    <RatingBar
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/access_type"
+        android:layout_toEndOf="@id/man_image"
+        android:id="@+id/bottom_card_rating"
+        android:rating="4"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        tools:rating="4" />
+
+</RelativeLayout>
