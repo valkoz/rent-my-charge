@@ -1,5 +1,6 @@
 package com.github.valkoz.rentmycharge
 
+import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.gms.maps.GoogleMap
@@ -10,10 +11,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.design.widget.BottomSheetBehavior
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
-
-
+import kotlinx.android.synthetic.main.bottom_sheet.*
+import java.net.HttpURLConnection
+import java.net.URL
 
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -27,9 +30,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         llBottomSheet = findViewById<View>(R.id.bottom_sheet) as LinearLayout
         val bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet)
-        //bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-        //bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+
+        car_charge.setOnClickListener {
+            val task = LoadTask()
+            task.execute()
+        }
 
         main_map_view.onCreate(Bundle())
         main_map_view.getMapAsync(this)
@@ -84,6 +90,17 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             true
         }
 
+    }
+
+    class LoadTask : AsyncTask<String, Void, Void>() {
+
+        private val url : String = "https://6c1fe2e2.ngrok.io/switch"
+
+        override fun doInBackground(vararg uri: String): Void? {
+            val connection = URL(url).openConnection() as HttpURLConnection
+            Log.e("responseCode", connection.responseCode.toString())
+            return null
+        }
     }
 
 

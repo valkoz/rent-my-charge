@@ -30,11 +30,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:text="reserve"
+            android:text="more"
             android:layout_marginEnd="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
+            android:id="@+id/car_charge"
             android:text="charge"
             android:layout_marginStart="40dp"
             android:layout_width="wrap_content"
